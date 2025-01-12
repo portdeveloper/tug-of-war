@@ -1,4 +1,4 @@
-# 🏗 Scaffold-ETH 2
+# 🏗 Scaffold-ETH 2 - Foundry Edition + Monad Devnet configuration
 
 <h4 align="center">
   <a href="https://docs.scaffoldeth.io">Documentation</a> |
@@ -29,7 +29,7 @@ Before you begin, you need to install the following tools:
 
 To get started with Scaffold-ETH 2, follow the steps below:
 
-1. Install dependencies if it was skipped in CLI:
+1. Install dependencies:
 
 ```
 cd my-dapp-example
@@ -66,6 +66,46 @@ Run smart contract test with `yarn foundry:test`
 - Edit your frontend homepage at `packages/nextjs/app/page.tsx`. For guidance on [routing](https://nextjs.org/docs/app/building-your-application/routing/defining-routes) and configuring [pages/layouts](https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts) checkout the Next.js documentation.
 - Edit your deployment scripts in `packages/foundry/script`
 
+## Deploying to Monad Devnet
+
+### Smart Contracts 
+
+First, copy the `.env.example` file to `.env` and fill in the values.
+
+Then, run the following command to deploy your contract to Monad Devnet:
+
+```
+yarn deploy --network monad_devnet
+```
+
+To verify your contract, run the following command:
+```
+yarn verify --network monad_devnet
+```
+
+To run both deploy and verify, run the following command:
+
+```
+yarn deploy --network monad_devnet && yarn verify --network monad_devnet
+```
+
+### Frontend
+
+First, copy the `.env.example` file to `.env.local` and fill in the values.
+
+Then, change the target network in `packages/nextjs/scaffold.config.ts` to `monadDevnet`
+
+```
+targetNetworks: [monadDevnet],
+```
+
+Then, run the following command to deploy your nextjs app to production:
+
+```
+yarn vercel
+```
+
+You should be able to see a URL to your app on Vercel.
 
 ## Documentation
 
