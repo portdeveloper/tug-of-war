@@ -21,6 +21,7 @@ interface tempVm {
 }
 
 contract VerifyAll is Script {
+    string VERIFIER_URL = vm.envString("MONAD_VERIFIER_URL");
     uint96 currTransactionIdx;
 
     function run() external {
@@ -55,7 +56,7 @@ contract VerifyAll is Script {
         bytes memory constructorArgs =
             BytesLib.slice(deployedBytecode, compiledBytecode.length, deployedBytecode.length - compiledBytecode.length);
 
-        string[] memory inputs = new string[](9);
+        string[] memory inputs = new string[](13);
         inputs[0] = "forge";
         inputs[1] = "verify-contract";
         inputs[2] = vm.toString(contractAddr);
@@ -65,6 +66,10 @@ contract VerifyAll is Script {
         inputs[6] = "--constructor-args";
         inputs[7] = vm.toString(constructorArgs);
         inputs[8] = "--watch";
+        inputs[9] = "--verifier";
+        inputs[10] = "blockscout";
+        inputs[11] = "--verifier-url";
+        inputs[12] = VERIFIER_URL;
 
         FfiResult memory f = tempVm(address(vm)).tryFfi(inputs);
 
