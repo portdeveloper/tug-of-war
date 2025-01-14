@@ -70,7 +70,17 @@ Run smart contract test with `yarn foundry:test`
 
 ### Smart Contracts 
 
-First, copy the `.env.example` file to `.env` and fill in the values.
+First, check out the existing `.env` file and fill in the necessary values:
+
+```
+MONAD_DEVNET_RPC_URL= 
+MONAD_VERIFIER_URL=
+
+# Do not change the name of the variable below, put monad chain id here
+FOUNDRY_CHAIN_ID=
+```
+
+Also, change the `ETH_KEYSTORE_ACCOUNT` to `scaffold-eth-custom` to deploy on Monad Devnet!
 
 Then, run the following command to deploy your contract to Monad Devnet:
 
