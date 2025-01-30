@@ -1,3 +1,17 @@
+# Tap of war
+A tug-of-war match where instead of pulling a rope, players are tapping buttons to move the tug to their side!
+
+## Game Mechanics
+- Players join a game using a game ID
+- Each player has a "TAP!" button
+- When Player 1 taps, the tug moves right (a counter is incremented in SC)
+- When Player 2 taps, the tug moves left (the counter is decremented in SC)
+- The game lasts 60 seconds
+- Whoever has pulled the ribbon more to their side when time runs out wins
+
+![image](https://github.com/user-attachments/assets/5d24ed5e-bebf-4462-ada2-292efa046b47)
+
+
 # 🏗 Scaffold-ETH 2 - Foundry Edition + Monad Devnet configuration
 
 <h4 align="center">
